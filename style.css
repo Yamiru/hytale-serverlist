@@ -1,0 +1,179 @@
+/*!
+ * Hytale Servers Landing Page Styles
+ * Reworked for green Hytale theme by Yamiru
+ * MIT License
+ */
+
+:root {
+  --bg0: #07170c;
+  --bg1: #0b2212;
+  --bg2: #0f331b;
+
+  --c: #48ff8a;      /* Hytale green highlight */
+  --v: #3cb76a;      /* deeper emerald */
+  --g: #d7ffdf;      /* mint accent */
+
+  --ink: #e9ffef;
+  --muted: #9bc8a8;
+}
+
+/* Reset + base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body.twilight {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg1);
+  overflow-x: hidden;
+}
+
+/* Static gradient background */
+.twilight-static {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(
+    120% 90% at 50% -20%,
+    #10331f 0%,
+    var(--bg1) 45%,
+    var(--bg2) 100%
+  );
+}
+
+/* Canvas starfield */
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 980px;
+  margin-inline: auto;
+  padding: 24px;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Typography */
+h1 {
+  margin: 0.5rem 0;
+}
+
+/* Hytale emerald gradient title */
+.tw-title {
+  font-family: "Cinzel Decorative", serif;
+  background: linear-gradient(
+    135deg,
+    var(--c) 0%,
+    var(--v) 60%,
+    var(--g) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 14px rgba(72, 255, 138, 0.45),
+    0 0 28px rgba(60, 183, 106, 0.25),
+    0 0 40px rgba(72, 255, 138, 0.15);
+}
+
+.tw-body {
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.tw-muted {
+  color: var(--muted);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+p {
+  line-height: 1.75;
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--c);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Footer */
+.tw-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 15, 8, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 16px;
+}
+
+.tw-footer p {
+  max-width: 1100px;
+  margin: 0.35rem auto;
+}
+
+/* Hero text sizes */
+.display-5 {
+  font-size: 2.6rem;
+}
+
+.lead {
+  font-size: 1.12rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .display-5 {
+    font-size: 1.9rem;
+  }
+
+  .lead {
+    font-size: 1.02rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #bgCanvas {
+    display: none;
+  }
+
+  .twilight-static {
+    z-index: 0;
+  }
+}
